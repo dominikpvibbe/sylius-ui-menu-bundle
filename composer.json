@@ -6,8 +6,6 @@
   "require": {
     "php": "^7.3",
     "symfony/framework-bundle": "^4.4",
-    "symfony/templating": "^4.4",
-    "symfony/validator": "^4.4",
     "sylius/resource-bundle": "^1.7"
   },
   "require-dev": {
