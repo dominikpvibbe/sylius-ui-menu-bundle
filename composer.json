@@ -21,15 +21,10 @@
   },
   "autoload": {
     "psr-4": {
-      "Vibbe\\SyliusUiMenuBuilderPlugin\\": "src/"
+      "Vibbe\\SyliusUiMenuBuilderPlugin\\": ""
     }
   },
   "scripts": {
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Tests\\Vibbe\\SyliusUiMenuBuilderPlugin\\": "tests/"
-    }
   },
   "suggest": {
     "nelmio/cors-bundle": "allows you to send Cross-Origin Ajax API Request"
