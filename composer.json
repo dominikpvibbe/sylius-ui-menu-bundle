@@ -14,7 +14,6 @@
     "doctrine/orm": "^2.5",
     "sylius-labs/coding-standard": "^3.0",
     "sylius/grid-bundle": "^1.7",
-    "sylius/grid-bundle": "^1.7",
     "symfony/dependency-injection": "^4.4 || ^5.1",
     "symfony/dotenv": "^4.4 || ^5.1",
     "twig/twig": "^2.12 || ^3.0"
