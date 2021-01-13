@@ -1,0 +1,36 @@
+{
+  "name": "vibbe/sylius-ui-menu-builder-plugin",
+  "type": "sylius-plugin",
+  "description": "Ui Menu Builder for sylius.",
+  "license": "MIT",
+  "require": {
+    "php": "^7.3",
+    "symfony/framework-bundle": "^4.4",
+    "symfony/templating": "^4.4",
+    "symfony/validator": "^4.4",
+    "sylius/resource-bundle": "^1.7"
+  },
+  "require-dev": {
+    "sylius-labs/coding-standard": "^3.0",
+    "phpspec/phpspec": "^5.0",
+    "phpstan/phpstan": "^0.11",
+    "phpstan/phpstan-phpunit": "^0.11",
+    "phpstan/phpstan-webmozart-assert": "^0.11",
+    "phpunit/phpunit": "^7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Vibbe\\SyliusUiMenuBuilderPlugin\\": "src/"
+    }
+  },
+  "scripts": {
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\Vibbe\\SyliusUiMenuBuilderPlugin\\": "tests/"
+    }
+  },
+  "suggest": {
+    "nelmio/cors-bundle": "allows you to send Cross-Origin Ajax API Request"
+  }
+}
