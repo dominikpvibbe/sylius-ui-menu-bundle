@@ -1,4 +1,0 @@
-app_menu:
-  resource: |
-      alias: app.book
-  type: sylius.resource_api

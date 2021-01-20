@@ -1,0 +1,5 @@
+vibbe_sylius:
+    ui:
+        edit_menu: "Edycja Menu"
+        menus: 'Menu'
+        new_menu: "Nowy Element"

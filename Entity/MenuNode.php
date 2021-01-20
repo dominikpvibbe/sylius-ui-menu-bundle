@@ -6,69 +6,30 @@ namespace Vibbe\SyliusUiMenuBuilderPlugin\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Sylius\Component\Resource\Model\ResourceInterface;
-use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\TranslatableInterface;
 use Sylius\Component\Resource\Model\TranslatableTrait;
 use Sylius\Component\Resource\Model\TranslationInterface;
 
-/**
- * @ORM\Entity()
- */
-class MenuNode implements ResourceInterface, TranslatableInterface
+class MenuNode implements MenuNodeInterface
 {
     use TranslatableTrait {
         __construct as private initializeTranslationsCollection;
     }
 
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
     protected $id;
 
-    /**
-     * @var bool
-     * @ORM\Column(type="boolean")
-     */
     protected $is_main;
 
-    /**
-     * @var null|string
-     * @ORM\Column(type="string", length=256, nullable=true)
-     */
     protected $slug;
 
-    /**
-     * @var string|null
-     * @ORM\Column(type="text")
-     */
     protected $description;
 
-    /**
-     * @var bool
-     * @ORM\Column(type="boolean")
-     */
-    protected $enabled;
+    protected $enabled = false;
 
-    /**
-     * @var array
-     *
-     * @ORM\Column(type="array")
-     */
     protected $parameters = [];
 
-    /**
-     * @var MenuNode
-     * @ORM\ManyToOne(targetEntity="Vibbe\SyliusUiMenuBuilderPlugin\Entity\MenuNode", inversedBy="children")
-     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", nullable=true)
-     */
     private $parent;
 
-    /**
-     * @var MenuNode[]|ArrayCollection
-     * @ORM\OneToMany(targetEntity="Vibbe\SyliusUiMenuBuilderPlugin\Entity\MenuNode", mappedBy="parent",fetch="EXTRA_LAZY", orphanRemoval=true, cascade={"remove"}),
-     */
     private $children;
 
     public function __construct()
@@ -92,7 +53,7 @@ class MenuNode implements ResourceInterface, TranslatableInterface
         return $this->children;
     }
 
-    public function addChildren(MenuNode $menuNode)
+    public function addChildren(MenuNodeInterface $menuNode)
     {
         if (!$this->children->contains($menuNode)) {
             $this->children[] = $menuNode;
@@ -100,7 +61,7 @@ class MenuNode implements ResourceInterface, TranslatableInterface
         }
     }
 
-    public function removeChildren(MenuNode $menuNode)
+    public function removeChildren(MenuNodeInterface $menuNode)
     {
         if ($this->children->contains($menuNode)) {
             $this->children->removeElement($menuNode);
@@ -122,7 +83,7 @@ class MenuNode implements ResourceInterface, TranslatableInterface
     /**
      * @return MenuNode|null
      */
-    public function parent(): ?MenuNode
+    public function parent(): ?MenuNodeInterface
     {
         return $this->parent;
     }
@@ -131,14 +92,14 @@ class MenuNode implements ResourceInterface, TranslatableInterface
      * @param MenuNode|null $task
      * @return MenuNode
      */
-    public function setParent(?MenuNode $task): self
+    public function setParent(?MenuNodeInterface $menuNode): self
     {
-        $this->parent = $task;
+        $this->parent = $menuNode;
 
         return $this;
     }
 
-    public function isIsMain(): bool
+    public function isMain(): bool
     {
         return $this->is_main;
     }

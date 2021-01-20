@@ -1,0 +1,26 @@
+vibbe_sylius_menu:
+    resource: |
+        alias: vibbe_sylius.menu
+        section: admin
+        path: admin/menu
+        templates: "@SyliusAdmin\\Crud"
+        redirect: update
+        grid: vibbe_sylius_menu
+        vars:
+            all:
+                templates:
+                    form: VibbeSyliusUiMenuBuilderPlugin:MenuNode:_form.html.twig
+            index:
+                icon: 'file image outline'
+    type: sylius.resource
+
+#app_admin_menu_index:
+#    path: /admin/menu/
+#    methods: [GET]
+#    defaults:
+#        _controller: 'app.controller.menu:indexAction'
+#        _sylius:
+#            paginate: 5
+#            repository:
+#                method: paginateWithNoParents
+

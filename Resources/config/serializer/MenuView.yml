@@ -1,0 +1,7 @@
+Vibbe\SyliusUiMenuBuilderPlugin\View:
+    exclusion_policy: ALL
+    xml_root_name: MenuView
+    relations:
+        -   rel: self
+            href:
+                route: vibbe_sylius_shop_api_menu

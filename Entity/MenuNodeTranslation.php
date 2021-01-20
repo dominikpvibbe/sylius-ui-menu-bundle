@@ -6,37 +6,25 @@ namespace Vibbe\SyliusUiMenuBuilderPlugin\Entity;
 
 
 use Sylius\Component\Resource\Model\AbstractTranslation;
-use Doctrine\ORM\Mapping as ORM;
+use Sylius\Component\Resource\Model\TranslatableInterface;
 
-/**
- * @ORM\Entity
- */
-class MenuNodeTranslation extends AbstractTranslation
+class MenuNodeTranslation extends AbstractTranslation implements MenuNodeTranslationInterface
 {
-    /**
-     * @var int
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
     protected $id;
 
-    /**
-     * @var string|null
-     * @ORM\Column(type="string", length=256, nullable=true)
-     */
     protected $name;
 
-    /**
-     * @var string|null
-     * @ORM\Column(type="text", nullable=true)
-     */
     protected $tooltip;
+
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -44,7 +32,7 @@ class MenuNodeTranslation extends AbstractTranslation
     /**
      * @param string $name
      */
-    public function setName($name)
+    public function setName(?string $name)
     {
         $this->name = $name;
     }

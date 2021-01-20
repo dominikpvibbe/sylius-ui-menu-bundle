@@ -1,0 +1,19 @@
+Vibbe\SyliusUiMenuBuilderPlugin\Entity\MenuNodeTranslation:
+    type: mappedSuperclass
+    table: vibbe_menu_node_translation
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            column: name
+            type: string
+            nullable: true
+            length: 256
+        tooltip:
+            column: tooltip
+            type: text
+            nullable: true

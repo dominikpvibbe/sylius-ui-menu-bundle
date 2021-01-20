@@ -1,0 +1,5 @@
+vibbe_sylius_shop_api_menu:
+    path: /menu-node/
+    methods: [GET]
+    defaults:
+        _controller: vibbe.sylius.controller.menu.list_menu_action

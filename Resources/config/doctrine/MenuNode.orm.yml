@@ -1,0 +1,43 @@
+Vibbe\SyliusUiMenuBuilderPlugin\Entity\MenuNode:
+    type: mappedSuperclass
+    table: vibbe_menu_node
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        is_main:
+            column: is_main
+            type: boolean
+        slug:
+            column: slug
+            type: string
+            length: 250
+            unique: true
+        description:
+            column: description
+            type: text
+            nullable: true
+        enabled:
+            column: enabled
+            type: boolean
+        parameters:
+            column: parameters
+            type: array
+    manyToOne:
+        parent:
+            targetEntity: Vibbe\SyliusUiMenuBuilderPlugin\Entity\MenuNodeInterface
+            joinColumn:
+                name: parent_id
+                referencedColumnName: id
+                nullable: true
+    oneToMany:
+        children:
+            targetEntity: Vibbe\SyliusUiMenuBuilderPlugin\Entity\MenuNodeInterface
+            mappedBy: parent
+            fetch: EXTRA_LAZY
+            orphanRemoval: true
+            cascade: ['remove']
+
