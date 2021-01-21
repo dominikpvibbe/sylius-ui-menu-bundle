@@ -31,6 +31,7 @@ class MenuViewFactory implements MenuViewFactoryInterface
         $menuView->id  = $menuNode->getId();
         $menuView->name = $translation->getName() ?? '';
         $menuView->tooltip = $translation->getTooltip() ?? '';
+        $menuView->url     = $menuNode->getUrl();
 
         return $menuView;
     }

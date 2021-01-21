@@ -15,7 +15,10 @@ Vibbe\SyliusUiMenuBuilderPlugin\Entity\MenuNode:
             column: slug
             type: string
             length: 250
-            unique: true
+        url:
+            column: url
+            type: string
+            length: 512
         description:
             column: description
             type: text

@@ -22,6 +22,10 @@ class MenuNodeType extends AbstractResourceType
             ->add('slug',TextType::class,[
                 'required' => true
             ])
+            ->add('url',TextType::class,[
+                'required' => false,
+                'label'    => 'Url'
+            ])
             ->add('description',TextareaType::class,[
                 'required' => false
             ])

@@ -13,4 +13,6 @@ class MenuView
     public $tooltip;
 
     public $name;
+
+    public $url;
 }

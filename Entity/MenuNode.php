@@ -22,6 +22,11 @@ class MenuNode implements MenuNodeInterface
 
     protected $slug;
 
+    /**
+     * @var string|null
+     */
+    protected $url;
+
     protected $description;
 
     protected $enabled = false;
@@ -173,4 +178,22 @@ class MenuNode implements MenuNodeInterface
     {
         return new MenuNodeTranslation();
     }
+
+    /**
+     * @return string|null
+     */
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param string|null $url
+     */
+    public function setUrl(?string $url): void
+    {
+        $this->url = $url;
+    }
+
+
 }

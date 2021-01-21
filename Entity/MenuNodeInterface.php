@@ -53,4 +53,8 @@ interface MenuNodeInterface extends ResourceInterface, TranslatableInterface
     public function getTooltip(): ?string;
 
     public function setTooltip(?string $tooltip);
+
+    public function getUrl(): ?string;
+
+    public function setUrl(?string $url): void;
 }
