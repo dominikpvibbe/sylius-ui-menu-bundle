@@ -33,7 +33,7 @@ class MenuViewRepository implements MenuViewRepositoryInterface
 
     public function getAllActive(?string $localeCode): MenuListView
     {
-        $activeMenus = $this->menuRepository->findBy(['enabled' => true]);
+        $activeMenus = $this->menuRepository->findBy(['enabled' => true, 'parent_id' => null]);
 
         $menuListView = new MenuListView();
 
