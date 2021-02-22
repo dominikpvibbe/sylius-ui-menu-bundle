@@ -14,6 +14,53 @@ vibbe_sylius_menu:
                 icon: 'file image outline'
     type: sylius.resource
 
+vibbe_sylius_admin_menu_index:
+    path: /admin/menu-list/{parentId}
+    methods: [GET]
+    defaults:
+        parentId: ''
+        _controller: vibbe_sylius.controller.menu:indexAction
+        _sylius:
+            template: '@SyliusAdmin\\Crud\\index.html.twig'
+            grid: vibbe_sylius_menu
+            section: admin
+            permission: true
+
+vibbe_sylius_admin_menu_show:
+    path: /admin/menu-show/{menuId}
+    methods: [GET]
+    defaults:
+        _controller: vibbe_sylius.controller.menu:showAction
+        _sylius:
+            template: '@SyliusAdmin\\Crud\\show.html.twig'
+            grid: vibbe_sylius_menu
+            section: admin
+            permission: true
+
+vibbe_sylius_admin_menu_create:
+    path: /admin/menu/new/{parentId}
+    methods: [GET, POST]
+    defaults:
+        parentId: ''
+        _controller: vibbe_sylius.controller.menu:createAction
+        _sylius:
+            factory:
+                method: createForParent
+                arguments:
+                    - expr:service('vibbe_sylius.repository.menu').findOneByParentId($parentId)
+            template: '@SyliusAdmin\\Crud\\create.html.twig'
+            redirect:
+                route: vibbe_sylius_admin_menu_index
+                parameters: { parentId: $parentId }
+            grid: vibbe_sylius_menu
+            section: admin
+            permission: true
+            vars:
+                route:
+                    parameters:
+                        parentId: $parentId
+            
+
 #app_admin_menu_index:
 #    path: /admin/menu/
 #    methods: [GET]

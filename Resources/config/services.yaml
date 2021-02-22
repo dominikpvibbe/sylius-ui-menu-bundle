@@ -33,5 +33,12 @@ services:
         class: Vibbe\SyliusUiMenuBuilderPlugin\Controller\ListMenuAction
         arguments: ['@fos_rest.view_handler','@vibbe.sylius.menu.view_repository.menu_view_repository']
         tags: ['controller.service_arguments']
+    
+    vibbe.custom_factory.menu:
+        decorates: 'vibbe_sylius.factory.menu'
+        class: Vibbe\SyliusUiMenuBuilderPlugin\Factory\MenuNodeFactory
+        arguments:
+            - '@vibbe.custom_factory.menu.inner'
+        
         
     

@@ -61,6 +61,12 @@ class VibbeSyliusUiMenuBuilderExtension extends Extension implements PrependExte
                             'name'    => 'doctrine/orm',
                             'options' => [
                                 'class' => MenuNode::class,
+                                'repository' => [
+                                    'method' => 'createQueryBuilderByParentId',
+                                    'arguments' => [
+                                        '$parentId'
+                                    ]
+                                ]
                             ],
                         ],
                         'fields'  => [
@@ -94,6 +100,33 @@ class VibbeSyliusUiMenuBuilderExtension extends Extension implements PrependExte
                                     'type' => 'delete',
                                 ],
                             ],
+                            'subitem' => [
+                                'variants' => [
+                                    'type'  => 'links',
+                                    'label' => 'Zarządzaj',
+                                    'options'=> [
+                                        'icon' => 'cubes',
+                                        'links' => [
+                                            'index' => [
+                                                'label' => 'Lista',
+                                                'icon'  => 'list',
+                                                'route' => 'vibbe_sylius_admin_menu_index',
+                                                'parameters' => [
+                                                    'parentId' => 'resource.id'
+                                                ]
+                                            ],
+                                            'create' => [
+                                                'label' => 'Dodaj',
+                                                'icon'  => 'plus',
+                                                'route' => 'vibbe_sylius_admin_menu_create',
+                                                'parameters' => [
+                                                    'parentId' => 'resource.id'
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
                         ],
                     ],
                 ],
