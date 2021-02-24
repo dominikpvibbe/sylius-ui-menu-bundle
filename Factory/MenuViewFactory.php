@@ -33,6 +33,10 @@ class MenuViewFactory implements MenuViewFactoryInterface
         $menuView->tooltip = $translation->getTooltip() ?? '';
         $menuView->url     = $menuNode->getUrl();
 
+        foreach ($menuNode->children() as $child) {
+            $menuView->children[] = $this->create($child,$locale);
+        }
+
         return $menuView;
     }
 

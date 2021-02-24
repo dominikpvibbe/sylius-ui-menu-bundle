@@ -18,8 +18,14 @@ class MenuNode implements MenuNodeInterface
 
     protected $id;
 
+    /**
+     * @var bool
+     */
     protected $is_main;
 
+    /**
+     * @var string
+     */
     protected $slug;
 
     /**
@@ -27,15 +33,24 @@ class MenuNode implements MenuNodeInterface
      */
     protected $url;
 
+    /**
+     * @var string|null
+     */
     protected $description;
 
     protected $enabled = false;
 
     protected $parameters = [];
 
-    private $parent;
+    /**
+     * @var MenuNodeInterface|null
+     */
+    protected $parent;
 
-    private $children;
+    /**
+     * @var MenuNodeInterface[]
+     */
+    protected $children;
 
     public function __construct()
     {

@@ -6,8 +6,8 @@ services:
     vibbe.sylius.menu.listener.admin.menu_builder:
         class: Vibbe\SyliusUiMenuBuilderPlugin\Listener\AdminMenuListener
         tags:
-            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }        
-    
+            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }
+
     vibbe.sylius.menu.form.type:
         class: Vibbe\SyliusUiMenuBuilderPlugin\Form\Type\MenuNodeType
         tags:
@@ -18,22 +18,29 @@ services:
         tags:
             - { name: form.type }
         arguments: ['%vibbe_sylius.model.menu_translation.class%', ['sylius']]
-    
+
     vibbe.sylius.menu.locale_provider:
         class: Vibbe\SyliusUiMenuBuilderPlugin\Provider\LocaleProvider
         arguments: ['@sylius.locale_provider']
-    
+
     vibbe.sylius.menu.view_factory.menu_view_factory:
         class: Vibbe\SyliusUiMenuBuilderPlugin\Factory\MenuViewFactory
         arguments: ['Vibbe\SyliusUiMenuBuilderPlugin\View\MenuView','%locale%']
+    
     vibbe.sylius.menu.view_repository.menu_view_repository:
         class: Vibbe\SyliusUiMenuBuilderPlugin\ViewRepository\MenuViewRepository
         arguments: ['@vibbe_sylius.repository.menu','@vibbe.sylius.menu.view_factory.menu_view_factory','@vibbe.sylius.menu.locale_provider']
+    
     vibbe.sylius.controller.menu.list_menu_action:
         class: Vibbe\SyliusUiMenuBuilderPlugin\Controller\ListMenuAction
         arguments: ['@fos_rest.view_handler','@vibbe.sylius.menu.view_repository.menu_view_repository']
         tags: ['controller.service_arguments']
-    
+        
+    vibbe.sylius.controller.menu.show_by_slug_action:
+        class: Vibbe\SyliusUiMenuBuilderPlugin\Controller\ShowBySlugMenuAction
+        arguments: ['@fos_rest.view_handler','@vibbe.sylius.menu.view_repository.menu_view_repository']
+        tags: ['controller.service_arguments']
+
     vibbe.custom_factory.menu:
         decorates: 'vibbe_sylius.factory.menu'
         class: Vibbe\SyliusUiMenuBuilderPlugin\Factory\MenuNodeFactory

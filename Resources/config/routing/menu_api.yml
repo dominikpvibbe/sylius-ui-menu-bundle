@@ -3,3 +3,9 @@ vibbe_sylius_shop_api_menu:
     methods: [GET]
     defaults:
         _controller: vibbe.sylius.controller.menu.list_menu_action
+        
+vibbe_sylius_shop_api_menu_show_by_slug:
+    path: /menu-node/{slug}
+    methods: [GET]
+    defaults:
+        _controller: vibbe.sylius.controller.menu.show_by_slug_action
