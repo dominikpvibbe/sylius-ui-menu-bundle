@@ -31,12 +31,13 @@ class MenuNodeRepository extends EntityRepository implements MenuNodeRepositoryI
 
     public function createQueryBuilderByParentId($parentId = null)
     {
-
         $queryBuilder = $this->createQueryBuilder('o');
 
         if(!empty($parentId) && (int)$parentId > 0 ) {
             $queryBuilder->andWhere('o.parent = :parentId')
                 ->setParameter('parentId',$parentId);
+        } else {
+            $queryBuilder->andWhere('o.parent IS NULL');
         }
 
         return $queryBuilder;

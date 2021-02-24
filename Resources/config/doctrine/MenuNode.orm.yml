@@ -19,6 +19,7 @@ Vibbe\SyliusUiMenuBuilderPlugin\Entity\MenuNode:
             column: url
             type: string
             length: 512
+            nullable: true
         description:
             column: description
             type: text

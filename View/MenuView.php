@@ -15,4 +15,6 @@ class MenuView
     public $name;
 
     public $url;
+
+    public $children = [];
 }
