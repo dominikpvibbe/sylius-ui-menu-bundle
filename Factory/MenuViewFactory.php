@@ -34,7 +34,7 @@ class MenuViewFactory implements MenuViewFactoryInterface
         $menuView->url     = $menuNode->getUrl();
 
         foreach ($menuNode->children() as $child) {
-            $menuView->children[] = $this->create($child,$locale);
+            $menuView->items[] = $this->create($child,$locale);
         }
 
         return $menuView;
