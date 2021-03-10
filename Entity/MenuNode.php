@@ -52,6 +52,11 @@ class MenuNode implements MenuNodeInterface
      */
     protected $children;
 
+    /**
+     * @var string|null
+     */
+    protected $type;
+
     public function __construct()
     {
         $this->initializeTranslationsCollection();
@@ -208,6 +213,22 @@ class MenuNode implements MenuNodeInterface
     public function setUrl(?string $url): void
     {
         $this->url = $url;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string|null $type
+     */
+    public function setType(?string $type): void
+    {
+        $this->type = $type;
     }
 
 

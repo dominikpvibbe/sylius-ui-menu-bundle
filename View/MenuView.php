@@ -16,5 +16,7 @@ class MenuView
 
     public $url;
 
-    public $children = [];
+    public $type;
+
+    public $items = [];
 }

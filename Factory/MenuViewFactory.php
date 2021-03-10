@@ -24,6 +24,7 @@ class MenuViewFactory implements MenuViewFactoryInterface
 
     public function create(MenuNodeInterface $menuNode, string $locale): MenuView
     {
+        /** @var MenuView $menuView */
         $menuView = new $this->menuViewClass();
 
         $translation = $menuNode->getTranslation($locale);
@@ -32,9 +33,10 @@ class MenuViewFactory implements MenuViewFactoryInterface
         $menuView->name = $translation->getName() ?? '';
         $menuView->tooltip = $translation->getTooltip() ?? '';
         $menuView->url     = $menuNode->getUrl();
+        $menuView->type    = $menuNode->getType();
 
         foreach ($menuNode->children() as $child) {
-            $menuView->children[] = $this->create($child,$locale);
+            $menuView->items[] = $this->create($child,$locale);
         }
 
         return $menuView;

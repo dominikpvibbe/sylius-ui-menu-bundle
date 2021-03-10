@@ -30,6 +30,10 @@ Vibbe\SyliusUiMenuBuilderPlugin\Entity\MenuNode:
         parameters:
             column: parameters
             type: array
+        type:
+            column: type
+            type: string
+            nullable: true
     manyToOne:
         parent:
             targetEntity: Vibbe\SyliusUiMenuBuilderPlugin\Entity\MenuNodeInterface
