@@ -10,9 +10,13 @@ vibbe_sylius_menu:
             all:
                 templates:
                     form: '@VibbeSyliusUiMenuBuilderPlugin\\MenuNode\\_form.html.twig'
+            update:
+                templates:
+                    breadcrumb: '@VibbeSyliusUiMenuBuilderPlugin\\MenuNode\\Edit\\_breadcrumb.html.twig'
             index:
                 icon: 'file image outline'
     type: sylius.resource
+
 
 vibbe_sylius_admin_menu_index:
     path: /admin/menu-list/{parentId}
@@ -25,7 +29,10 @@ vibbe_sylius_admin_menu_index:
             grid: vibbe_sylius_menu
             section: admin
             permission: true
-
+            vars:
+                templates:
+                    breadcrumb: '@VibbeSyliusUiMenuBuilderPlugin\\MenuNode\\Index\\_breadcrumb.html.twig'
+                
 vibbe_sylius_admin_menu_show:
     path: /admin/menu-show/{menuId}
     methods: [GET]
@@ -59,6 +66,8 @@ vibbe_sylius_admin_menu_create:
                 route:
                     parameters:
                         parentId: $parentId
+                templates:
+                    breadcrumb: '@VibbeSyliusUiMenuBuilderPlugin\\MenuNode\\Create\\_breadcrumb.html.twig'
             
 
 #app_admin_menu_index:

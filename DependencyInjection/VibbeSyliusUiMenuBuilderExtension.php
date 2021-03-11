@@ -89,8 +89,8 @@ class VibbeSyliusUiMenuBuilderExtension extends Extension implements PrependExte
                         'actions' => [
                             'main' => [
                                 'create' => [
-                                    'type' => 'create',
-                                ],
+                                    'type' => 'create'
+                                ]
                             ],
                             'item' => [
                                 'update' => [

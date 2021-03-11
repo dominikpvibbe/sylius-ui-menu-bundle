@@ -1,0 +1,21 @@
+{% import '@SyliusAdmin/Macro/breadcrumb.html.twig' as breadcrumb %}
+
+{% if menu.hasParent() %}
+    {% set breadcrumbs = [
+        { label: 'sylius.ui.administration'|trans, url: path('sylius_admin_dashboard') },
+        { label: 'vibbe_sylius.ui.main_list'|trans, url: path('vibbe_sylius_admin_menu_index') },
+        { label: menu.parent().slug, url: path('vibbe_sylius_admin_menu_index', {'parentId': menu.parent().getId()})},
+        { label: 'vibbe_sylius.ui.new_menu'|trans }
+    ]
+    %}
+{% else %}
+    {% set breadcrumbs = [
+        { label: 'sylius.ui.administration'|trans, url: path('sylius_admin_dashboard') },
+        { label: 'vibbe_sylius.ui.main_list'|trans, url: path('vibbe_sylius_admin_menu_index') },
+        { label: 'vibbe_sylius.ui.new_menu'|trans }
+    ]
+    %}
+{% endif %}
+
+
+{{ breadcrumb.crumble(breadcrumbs) }}

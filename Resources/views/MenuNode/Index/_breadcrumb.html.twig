@@ -1,0 +1,20 @@
+{% import '@SyliusAdmin/Macro/breadcrumb.html.twig' as breadcrumb %}
+
+{% if app.request.attributes.has('parentId') and app.request.attributes.get('parentId') %}
+    {% set breadcrumbs = [
+        { label: 'sylius.ui.administration'|trans, url: path('sylius_admin_dashboard') },
+        { label: 'vibbe_sylius.ui.main_list'|trans, url: path('vibbe_sylius_admin_menu_index') },
+        { label: 'Edytuj głowny element', url: path('vibbe_sylius_admin_menu_update', {'id': app.request.attributes.get('parentId')}) },
+        { label: 'Lista'|trans },
+    ]
+    %}
+{% else %}
+    {% set breadcrumbs = [
+        { label: 'sylius.ui.administration'|trans, url: path('sylius_admin_dashboard') },
+        { label: 'vibbe_sylius.ui.menus'|trans, url: path('vibbe_sylius_admin_menu_index') },
+    ]
+    %}
+{% endif %}
+
+
+{{ breadcrumb.crumble(breadcrumbs) }}

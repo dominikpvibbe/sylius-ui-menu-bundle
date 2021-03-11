@@ -3,3 +3,4 @@ vibbe_sylius:
         edit_menu: "Edycja Menu"
         menus: 'Menu'
         new_menu: "Nowy Element"
+        main_list: "Główna Lista"
