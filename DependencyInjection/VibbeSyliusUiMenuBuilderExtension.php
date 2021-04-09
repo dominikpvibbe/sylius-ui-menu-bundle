@@ -77,14 +77,7 @@ class VibbeSyliusUiMenuBuilderExtension extends Extension implements PrependExte
                             'description' => [
                                 'type'  => 'string',
                                 'label' => 'Opis',
-                            ],
-                            'enabled' => [
-                                'type'    => 'twig',
-                                'label'   => 'sylius.ui.enabled',
-                                'options' => [
-                                    'template' => '@SyliusUi/Grid/Field/enabled.html.twig',
-                                ],
-                            ],
+                            ]
                         ],
                         'actions' => [
                             'main' => [
