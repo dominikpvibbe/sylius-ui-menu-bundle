@@ -30,6 +30,9 @@ class MenuNodeType extends AbstractResourceType
             ->add('description',TextareaType::class,[
                 'required' => false
             ])
+            ->add('enabled', CheckboxType::class, [
+                'required' => false,
+            ])
             ->add('translations', ResourceTranslationsType::class, [
                 'entry_type' => MenuNodeTranslationType::class,
             ])
